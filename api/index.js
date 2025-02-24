@@ -128,7 +128,7 @@ app.post('/register', upload.single('profilePicture'), async (req, res) => {
 });
 
 // Admin Endpoint
-app.get('/api/registrations', authenticateAdmin, async (req, res) => {
+app.get('/registrations', authenticateAdmin, async (req, res) => {
     try {
         const { page = 1, limit = 10 } = req.query;
         const result = await Registration.paginate({}, {
@@ -145,7 +145,7 @@ app.get('/api/registrations', authenticateAdmin, async (req, res) => {
 });
 
 // Delete Registration Endpoint
-app.delete('/api/registration/:id', authenticateAdmin, async (req, res) => {
+app.delete('/registration/:id', authenticateAdmin, async (req, res) => {
     try {
         const { id } = req.params;
 
